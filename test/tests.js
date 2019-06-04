@@ -1,12 +1,3 @@
-const test = QUnit.test;
+import './html-equal.js';
 
-QUnit.module('');
-
-test('', assert => {
-    //arrange
-
-    //act
-
-    //assert
-    assert.equal(true, true);
-});
+import './Profile.test.js';
