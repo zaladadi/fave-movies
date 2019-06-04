@@ -2,8 +2,9 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import movieApi from '../services/movieDB-api.js';
 import MovieList from '../shared/MovieList.js';
+import hashStorage from '../utils/hash-storage.js';
 
-class App extends Component {
+class App extends Component {   
 
     render() {
         const dom = this.renderDOM();
@@ -17,13 +18,22 @@ class App extends Component {
         main.appendChild(movieList.render());
 
     // #4 got movie data and passed to list
-        movieApi.getMovies()
-            .then(response => {
-                console.log(response.results[0]);
-                const movieData = response.results;
-                movieList.update({ movieData });
-            });
-        
+        function loadMovies() {
+            const queryProps = hashStorage.get();
+
+            movieApi.getMovies(queryProps)
+                .then(response => {
+                    const movieData = response.results;
+                    console.log(movieData);
+                    movieList.update({ movieData });
+                });
+        }
+
+        loadMovies();
+
+        window.addEventListener('hashchange', () => {
+            loadMovies();
+        });
 
         return dom;
     }
