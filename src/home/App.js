@@ -13,11 +13,16 @@ class App extends Component {
         dom.insertBefore(header.render(), main);
 
         // Rendered movieList in app - #2
-        const movieList = new MovieList();
+        const movieList = new MovieList({ movieData: [] });
         main.appendChild(movieList.render());
 
+    // #4 got movie data and passed to list
         movieApi.getMovies()
-            .then(console.log);
+            .then(response => {
+                console.log(response.results[0]);
+                const movieData = response.results;
+                movieList.update({ movieData });
+            });
         
 
         return dom;
