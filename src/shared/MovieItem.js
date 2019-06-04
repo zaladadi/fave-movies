@@ -5,10 +5,16 @@ import Component from '../Component.js';
 class MovieItem extends Component {
 
     renderTemplate() {
+        // Base URL for movie image
+        const imgPath = 'https://image.tmdb.org/t/p/w500';
+        
+        //Brought in movie prop from list and rendered - #7
+        const movie = this.props.movie;
+
         return /*html*/`
             <li class="movie-item">
-                <h2 id="title">Fight Club</h2>
-                <p>Mischief. Mayhem. Soap.</p>
+                <h2 id="title">${movie.title}</h2>
+                <img id="poster" src="${imgPath}${movie.poster_path}">
             </li>
         `;
     }
