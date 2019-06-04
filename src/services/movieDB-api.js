@@ -1,6 +1,6 @@
 // import QUERY from '../QUERY.js';
 
-const URL = 'https://api.themoviedb.org/3/movie/550';
+const URL = 'https://api.themoviedb.org/3/movie/popular';
 const apiKey = 'api_key=eb6bb7c2bbf3c733ad68fc5e68499ee6';
 
 //   /discover/movie?sort_by=popularity.desc
