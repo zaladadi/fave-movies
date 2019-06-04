@@ -9,7 +9,7 @@ class Search extends Component {
         form.addEventListener('submit', event => {
             event.preventDefault();
             const movieSearch = input.value;
-            hashStorage.set({ 'search': movieSearch });
+            hashStorage.set({ 'query': movieSearch });
         });
 
         function setInputFromHash() {
