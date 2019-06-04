@@ -1,8 +1,17 @@
 import Component from '../Component.js';
+import { userFavoritesRef } from '../services/firebase.js';
 
 
 //Created base movieitem component with static data - #3
 class MovieItem extends Component {
+    render() {
+        const dom = this.renderDOM();
+        const button = dom.querySelector('button');
+        button.addEventListener('click', () => {
+            userFavoritesRef.set('test');
+        });
+        return dom;
+    }
 
     renderTemplate() {
         //Brought in movie prop from list and rendered - #7
@@ -19,6 +28,7 @@ class MovieItem extends Component {
             <li class="movie-item">
                 <h2 id="title">${movie.title}</h2>
                 <img id="poster" src="${imgPath}">
+                <button></button>
             </li>
         `;
     }
