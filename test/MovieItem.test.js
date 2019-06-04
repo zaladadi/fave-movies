@@ -20,5 +20,5 @@ test('return movie item from props', assert => {
             <img id="poster" src="https://image.tmdb.org/t/p/w500/3iYQTLGoy7QnjcUYRJy4YrAgGvp.jpg">
         </li>
     `;
-    assert.htmlEqual(result, expected)
+    assert.htmlEqual(result, expected);
 });
