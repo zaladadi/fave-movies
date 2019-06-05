@@ -1,15 +1,32 @@
 import Component from '../Component.js';
-import { userFavoritesRef } from '../services/firebase.js';
+import Favorite from './Favorite.js';
+import { userFavoritesRef, auth } from '../services/firebase.js';
 
 
 //Created base movieitem component with static data - #3
 class MovieItem extends Component {
     render() {
         const dom = this.renderDOM();
-        const button = dom.querySelector('button');
-        button.addEventListener('click', () => {
-            userFavoritesRef.set('test');
+        const movie = this.props.movie;
+
+        const userMovieRef = userFavoritesRef
+            .child(auth.currentUser.uid)
+            .child(movie.id);
+
+        const favorite = new Favorite({
+            isFavorite: false,
+            onClick: (makeFavorite) => {
+                if(makeFavorite) {
+                    userMovieRef.set({
+                        id: movie.id,
+                        title: movie.title,
+                        image: movie.poster_path
+                    });
+                }
+            }
         });
+        dom.appendChild(favorite.render());
+
         return dom;
     }
 
@@ -28,7 +45,6 @@ class MovieItem extends Component {
             <li class="movie-item">
                 <h2 id="title">${movie.title}</h2>
                 <img id="poster" src="${imgPath}">
-                <button></button>
             </li>
         `;
     }
