@@ -10,8 +10,10 @@ class Favorite extends Component {
     }
 
     renderTemplate() {
+        const isFavorite = this.props.isFavorite;
+
         return /*html*/`
-            <button class="favorite-star"></button>
+            <button class="favorite-star">${isFavorite ? '★' : '☆'}</button>
         `;
     }
 }
