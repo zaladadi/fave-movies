@@ -8,7 +8,7 @@ test('return movie item from props', assert => {
     //arrange
     const movie = {
         title: 'Fight Club',
-        poster_path: '/3iYQTLGoy7QnjcUYRJy4YrAgGvp.jpg'
+        poster_path: '3iYQTLGoy7QnjcUYRJy4YrAgGvp.jpg'
     };
     const item = new MovieItem({ movie });
     const result = item.renderTemplate();
