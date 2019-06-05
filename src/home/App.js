@@ -19,12 +19,11 @@ class App extends Component {
 
     // #4 got movie data and passed to list
         function loadMovies() {
-            const queryProps = hashStorage.get();
+            let queryProps = hashStorage.get();
 
             movieApi.getMovies(queryProps)
                 .then(response => {
                     const movieData = response.results;
-                    console.log(movieData);
                     movieList.update({ movieData });
                 });
         }
