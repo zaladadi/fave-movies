@@ -6,12 +6,12 @@ const apiKey = 'api_key=eb6bb7c2bbf3c733ad68fc5e68499ee6';
 const movieApi = {
 
     getMovies(queryProps) {
-        let query; 
-        if(!queryProps) {
-            query = 'movie/popular';
+        let query;
+        if(queryProps.query) {
+            query = 'search/movie?' + QUERY.stringify(queryProps);
         }
         else {
-            query = 'search/movie?' + QUERY.stringify(queryProps);
+            query = 'movie/popular?';
         }
         const url = `${URL}${query}&${apiKey}`;
         return fetch(url)
