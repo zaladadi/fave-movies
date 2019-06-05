@@ -32,10 +32,12 @@ class Component {
         // update the props:
         Object.assign(this.props, props);
         
-        const oldRoot = this.rootElement;
-        this.unrender();
-        const newDOM = this.render();
-        oldRoot.replaceWith(newDOM);
+        setTimeout(() => {
+            const oldRoot = this.rootElement;
+            this.unrender();
+            const newDOM = this.render();
+            oldRoot.replaceWith(newDOM); 
+        }, 0);
     }
 }
 
