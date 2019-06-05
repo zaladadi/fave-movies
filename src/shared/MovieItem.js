@@ -23,8 +23,17 @@ class MovieItem extends Component {
                         image: movie.poster_path
                     });
                 }
+                else {
+                    userMovieRef.remove();
+                }
             }
         });
+
+        userMovieRef.on('value', snapshot => {
+            const isFavorite = Boolean(snapshot.val());
+            favorite.update({ isFavorite });
+        });
+
         dom.appendChild(favorite.render());
 
         return dom;
