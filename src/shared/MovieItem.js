@@ -20,7 +20,7 @@ class MovieItem extends Component {
                     userMovieRef.set({
                         id: movie.id,
                         title: movie.title,
-                        image: movie.poster_path
+                        poster_path: movie.poster_path
                     });
                 }
                 else {
