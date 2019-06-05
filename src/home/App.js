@@ -10,7 +10,7 @@ class App extends Component {
         const dom = this.renderDOM();
         const main = dom.querySelector('main');
 
-        const header = new Header();
+        const header = new Header({ title: 'Current Popular Movies' });
         dom.insertBefore(header.render(), main);
 
         // Rendered movieList in app - #2
