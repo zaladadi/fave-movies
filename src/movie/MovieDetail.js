@@ -5,6 +5,10 @@ class MovieDetail extends Component {
     renderTemplate() {
         const movie = this.props.movie;
 
+        if(!movie) {
+            return `<div></div>`;
+        }
+        
         let imgPath = 'https://image.tmdb.org/t/p/w500';
         return /*html*/`
             <section>
