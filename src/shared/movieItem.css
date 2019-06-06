@@ -19,7 +19,7 @@ li img {
     object-fit: cover;
 }
 
-li button {
+.favorite-star {
     background: rgba(0, 0, 0, 0.075);
     font-size: 1.5em;
     outline: none;
