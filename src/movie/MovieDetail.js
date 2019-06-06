@@ -10,6 +10,9 @@ class MovieDetail extends Component {
         }
         
         let imgPath = 'https://image.tmdb.org/t/p/w500';
+        if(!movie.poster_path) {
+            imgPath = '../../assets/default-movie.png';
+        }
         return /*html*/`
             <section>
                 <h2>${movie.title}</h2>
