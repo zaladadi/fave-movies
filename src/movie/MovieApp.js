@@ -1,6 +1,8 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieDetail from './MovieDetail.js';
+import QUERY from '../QUERY.js';
+import movieAPI from '../services/movieDB-api.js';
 
 class MovieApp extends Component {
 
@@ -13,6 +15,15 @@ class MovieApp extends Component {
 
         const movieDetail = new MovieDetail();
         main.appendChild(movieDetail.render());
+
+        const search = window.location.search.slice(1);
+        const query = QUERY.parse(search);
+        const id = query.id;
+        movieApi.get
+        
+        if(!id) {
+            window.location = '/index.html';
+        }
 
 
         return dom;
