@@ -1,7 +1,6 @@
 import Component from '../Component.js';
 import Favorite from './Favorite.js';
-import { userFavoritesRef, auth } from '../services/firebase.js';
-import { setFavorite } from '../services/actions.js';
+import { setFavorite, getUserMovieFavoriteRef } from '../services/actions.js';
 
 //Created base movieitem component with static data - #3
 class MovieItem extends Component {
@@ -9,10 +8,7 @@ class MovieItem extends Component {
         const dom = this.renderDOM();
         const movie = this.props.movie;
 
-        const userMovieRef = userFavoritesRef
-            .child(auth.currentUser.uid)
-            .child(movie.id);
-
+        const userMovieRef = getUserMovieFavoriteRef(movie.id);
         const favorite = new Favorite({
             isFavorite: false,
             onClick: (makeFavorite) => {
