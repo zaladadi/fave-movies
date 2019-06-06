@@ -16,6 +16,12 @@ const movieApi = {
         const url = `${URL}${query}&${apiKey}`;
         return fetch(url)
             .then(response => response.json());
+    },
+
+    getMovieById(id) {
+        const url = `${URL}movie/${id}?${apiKey}`;
+        return fetch(url)
+            .then(response => response.json());
     }
 };
 
