@@ -49,10 +49,11 @@ class MovieItem extends Component {
         if(!movie.poster_path) {
             imgPath = '../../assets/default-movie.png';
         }
-
+        
+         
         return /*html*/`
             <li class="movie-item">
-                <h2 id="title">${movie.title}</h2>
+                <a href="./movie.html?id=${movie.id}"><h2 id="title">${movie.title}</h2></a>
                 <img id="poster" src="${imgPath}">
             </li>
         `;
