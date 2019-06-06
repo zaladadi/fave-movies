@@ -16,7 +16,7 @@ class MovieItem extends Component {
         const favorite = new Favorite({
             isFavorite: false,
             onClick: (makeFavorite) => {
-                setFavorite(makeFavorite, movie, userMovieRef);
+                setFavorite(movie, makeFavorite);
             }
         });
 
