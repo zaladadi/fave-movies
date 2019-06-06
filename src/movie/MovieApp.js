@@ -13,16 +13,23 @@ class MovieApp extends Component {
         const header = new Header({ title: 'Movie Details' });
         dom.insertBefore(header.render(), main);
 
-        const movieDetail = new MovieDetail();
+        const movieDetail = new MovieDetail({ movie: null });
         main.appendChild(movieDetail.render());
 
         const search = window.location.search.slice(1);
         const query = QUERY.parse(search);
         const id = query.id;
-        movieApi.get
+
+        movieAPI.getMovieById(id)
+            .then(movie => {
+                movieDetail.update({ movie });
+            })
+            .catch(err => {
+                console.log(err);
+            });
         
         if(!id) {
-            window.location = '/index.html';
+            window.location = './';
         }
 
 
