@@ -40,6 +40,7 @@ class MovieItem extends Component {
          
         return /*html*/`
             <li class="movie-item">
+                <div class="favorite-container"></div>
                 <a href="./movie.html?id=${movie.id}"><h2 id="title">${movie.title}</h2></a>
                 <img id="poster" src="${imgPath}">
             </li>
