@@ -1,9 +1,9 @@
- 
-
-.profile {
+ .profile {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: absolute;
+    right: 5%;
 }
 
 .profile button {
