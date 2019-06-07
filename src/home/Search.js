@@ -30,8 +30,13 @@ class Search extends Component {
         return form;
     }
     renderTemplate() {
+        let elementClass;
+        if(this.props.title === 'Sign In') {
+            elementClass = 'hidden';
+        }
+
         return /*html*/`
-            <form class="search">
+            <form class="${elementClass} search">
                 <input>
                 <button>🔍</button>
             </form>
