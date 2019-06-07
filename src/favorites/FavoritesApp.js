@@ -1,8 +1,9 @@
+import '../utils/check-auth.js';
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import MovieList from '../shared/MovieList.js';
 import QUERY from '../QUERY.js';
-import { auth, userFavoritesRef } from '../services/firebase.js';
+import { auth, userFavoritesRef, usersRef } from '../services/firebase.js';
 
 class FavoritesApp extends Component {
     render() {
@@ -25,6 +26,19 @@ class FavoritesApp extends Component {
                 const movieData = value ? Object.values(value) : [];
                 movieList.update({ movieData });
             });
+        
+        if(uid === auth.currentUser.uid) {
+            header.update({ title: 'Your Favorites' });
+        }
+        else {
+            usersRef.child(uid)
+                .on('value', snapshot => {
+                    const user = snapshot.val();
+                    header.update({
+                        title: `${user.displayName}'s Favorites`
+                    });
+                });
+        }
 
         return dom;
     }
