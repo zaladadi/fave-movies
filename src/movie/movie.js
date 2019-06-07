@@ -1,3 +1,4 @@
+import '../utils/check-auth.js';
 import MovieApp from './MovieApp.js';
 import { auth } from '../services/firebase.js';
 
