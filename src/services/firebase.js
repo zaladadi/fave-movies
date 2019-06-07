@@ -8,8 +8,12 @@ const config = {
     appId: '1:688529067835:web:1920a3eb9252f602'
 };
 
-firebase.initializeApp(config);
+export const app = firebase.initializeApp(config);
 
 export const auth = firebase.auth();
-
-// export const db = firebase.database();
+export const db = firebase.database();
+// set new reference on database #8
+export const userFavoritesRef = db.ref('movieFavoritesByUser');
+export const favoritesByUserRef = db.ref('userFavoritesByMovie');
+export const usersRef = db.ref('users');
+window.db = db;

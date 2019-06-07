@@ -1,0 +1,29 @@
+li {
+    list-style: none;
+    border: 1px solid black;
+    width: 20vw;
+    margin: 15px;
+    text-align: center;
+    min-width: 300px;
+}
+
+li h2 {
+    min-height: 50px;
+    text-align: center;
+}
+
+li img {
+    border: 5px solid black;
+    width: 275px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.favorite-star {
+    background: rgba(0, 0, 0, 0.075);
+    font-size: 1.5em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 100%;
+    color: goldenrod;
+}
