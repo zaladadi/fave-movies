@@ -15,13 +15,15 @@ test('Returns movie details from movie', assert => {
     };
     let imgPath = 'https://image.tmdb.org/t/p/w500';
     const expected = /*html*/`
-        <section>
-            <h2>Avatar</h2>
-            <img src="${imgPath}/kmcqlZGaSh20zpTbuoF0Cdn07dT.jpg">
-            <p>2009-12-10</p>
-            <p>In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.
-            </p>
-        </section>
+            <section class="movie-detail">
+                <img class="movie-image" src="${imgPath}/kmcqlZGaSh20zpTbuoF0Cdn07dT.jpg">
+                <section class="text">
+                    <h2>Avatar</h2>
+                    <p class="release-date">2009-12-10</p>
+                    <p>In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.</p>
+                </section>
+                <div class="favorite-container"></div>
+            </section>
     `;
     //act
     const movieDetail = new MovieDetail({ movie });
