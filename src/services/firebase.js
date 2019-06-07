@@ -15,4 +15,5 @@ export const db = firebase.database();
 // set new reference on database #8
 export const userFavoritesRef = db.ref('movieFavoritesByUser');
 export const favoritesByUserRef = db.ref('userFavoritesByMovie');
+export const usersRef = db.ref('users');
 window.db = db;
